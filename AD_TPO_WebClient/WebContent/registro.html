@@ -1,11 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-
-
 <head>
-  <title>Truco TPO 2018 - Login</title>
+  <title>Truco - Registro</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -16,21 +12,21 @@
 </head>
 <body>
   <div class="container bg-faded">
-    <h1 class="text-center">Truco web - Login</h1>
+    <h1 class="text-center">Truco web - Registrarse</h1>
     <hr>
     <div class="row">
         <div class="col-6 mx-auto">
             <!-- <div class="card card-body mb-2"> -->
-            <form action="LoginServlet">
+            <form action="/action_page.php">
               <div class="form-group">
                 <label for="apodo">Apodo:</label>
-                <input type="text" class="form-control" id="apodo" name="apodo">
+                <input type="Apodo" class="form-control" id="apodo">
               </div>
               <div class="form-group">
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" class="form-control" id="contrasena" name="contrasena">
+                <label for="contraseña">Contraseña:</label>
+                <input type="Contraseña" class="form-control" id="pwd">
               </div>
-              <button type="submit" class="btn btn-default">Ingresar</button>
+              <button type="submit" class="btn btn-default">Registrarse</button>
             </form>
             </div>
         </div>

@@ -1,0 +1,32 @@
+body {
+	background-color: #1abc9c;
+	color: #fff;
+}
+
+h6 {
+	color: #000;
+}
+
+h2 {
+	color: #777;
+}
+
+p {
+	color: #777;
+}
+
+.cartaEnMesa {
+	height: 139px;
+	width: 100px;
+	margin-right: 30px;
+}
+
+.carta {
+	height: 209px;
+	width: 150px;
+	margin-right: 40px;
+}
+
+.contexto {
+	line-height: 10px;
+}

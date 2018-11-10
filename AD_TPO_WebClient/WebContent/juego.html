@@ -33,33 +33,86 @@
     <hr>
     <div class="container bg-faded">
         <div class="row">
-            <div class="col">
-                <div class="mx-auto w-50 p-3 bg-dark text-white text-center">
-                    <span>Partida 1</span>
+          <div class="col-10 mx-auto">
+            <div class="card card-body mb-2"> <!-- Ésta es la mesa de juego -->
+              <div class="container">
+                <div class="card-deck mb-3">
+
+                    <button class="cartaEnMesa">
+                      <img src="./images/cartas/basto (4).jpg">
+                    </button>
+
+                    <button class="cartaEnMesa">
+                      <img src="./images/cartas/espada (10).jpg">
+                    </button>
+
+                    <button class="cartaEnMesa">
+                      <img src="./images/cartas/espada (11).jpg">
+                    </button>
+
+                    <button class="cartaEnMesa">
+                      <img src="./images/cartas/oro (7).jpg">
+                    </button>
+
+                </div>
+
+                <hr>
+
+                <div class="card-deck mb-3">
+
+                    <button id="carta1" class="carta" onclick="document.getElementById('carta1').style.visibility='hidden'">
+                      <img class="carta" src="./images/cartas/basto (1).jpg">
+                    </button>
+
+                    <button id="carta2" class="carta" onclick="document.getElementById('carta2').style.visibility='hidden'">
+                      <img class="carta" src="./images/cartas/espada (1).jpg">
+                    </button>
+
+                    <button id="carta3" class="carta" onclick="document.getElementById('carta3').style.visibility='hidden'">
+                      <img class="carta" src="./images/cartas/espada (7).jpg">
+                    </button>
+
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2 mx-auto text-center">
+              <div class="card card-body mb-2">
+                <h6>Pareja 1</h6>
+                <h2>26</h2>
+                <h6>Pareja 2</h6>
+                <h2>18</h2>
+                <hr>
+                <button type="button" class="btn btn-danger">Actualizar</button>
+                <hr>
+                <div>
+                  <div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Envites
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Envido</a>
+                        <a class="dropdown-item" href="#">Real Envido</a>
+                        <a class="dropdown-item" href="#">Falta envido</a>
+                      </div>
+                  </div>
+                <hr>  
                 </div>
             </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-10 mx-auto">
-                <div class="card card-body mb-2">
-                    <h6>Mesa de juego</h6>
-                </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card card-body mb-2 contexto">
+              <p>Jugador 1 dijo envido.</p>
+              <p>Jugador 3 dijo quiero.</p>
+              <p>Jugador 2 ganó el envido con 28 puntos.</p>
             </div>
-            <div class="col-2 mx-auto text-center">
-                <div class="card card-body mb-2">
-                    <h6>Pareja 1</h6>
-                    <h2>26</h2>
-                    <h6>Pareja 2</h6>
-                    <h2>18</h2>
-                </div>
-            </div>
-            <div class="col-12 mx-auto">
-                <div class="card card-body mb-2">
-                    <h6>Información de contexto</h6>
-                </div>
-            </div>
-        </div>
+          </div> 
+          </div>
+            
         <hr>
     
     </div>
