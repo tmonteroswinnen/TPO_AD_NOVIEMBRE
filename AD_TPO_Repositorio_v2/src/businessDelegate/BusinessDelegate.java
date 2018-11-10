@@ -24,7 +24,7 @@ import interfaz.TDATruco;
 public class BusinessDelegate {
 	private static BusinessDelegate instancia;
 	public TDATruco objetoRemoto;
-
+ 
 	public BusinessDelegate() throws RemoteException {
 		
 		super();

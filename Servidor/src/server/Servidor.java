@@ -27,7 +27,7 @@ public class Servidor {
 			objetoRemoto = new ObjetoRemoto();
 
 			LocateRegistry.createRegistry(1099);
-			Naming.rebind("//localhost/ServicioCentral", objetoRemoto);
+			Naming.rebind("//localhost/TPOAD2018_2C", objetoRemoto);
 			System.out.println("Fijado en //localhost/TPOAD2018_2C");
 
 			new HibernateUtil(); // crea la conexion a la BD
