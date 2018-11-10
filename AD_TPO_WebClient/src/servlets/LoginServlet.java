@@ -3,9 +3,11 @@ package servlets;
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -65,13 +67,13 @@ public class LoginServlet extends HttpServlet {
 			
 			
 			jg =     BusinessDelegate.getInstancia().login(jg);
-
+			RequestDispatcher rd = null;
+			
 			request.setAttribute("jugador", jg);
 
 
-			RequestDispatcher rd = null;
-			rd = request.getRequestDispatcher("/juego.html");
-
+			
+			rd = getServletContext().getRequestDispatcher("/juego.jsp");
 			rd.forward(request, response);
 		} catch (Exception e) {
 			session.setAttribute("resultadoLogin", false);

@@ -1,5 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="es">
+<%@page import = "dtos.JugadorDTO" %>
 <head>
   <title>Truco - Login</title>
   <meta charset="utf-8">
@@ -32,15 +35,17 @@
     </nav>
     <hr>
     <div class="mx-auto w-50 p-3 bg-dark text-white text-center">
-    <%@ request.getAttribute("object"); %>
-      <span>Jugador 1</span>
+    <% 
+         JugadorDTO jg = (JugadorDTO) request.getAttribute("jugador");
+     %>
+      <span><%= jg.getApodo() %></span>
     </div>
     <hr>
 
     <div class="container bg-faded">
         <div class="row">
           <div class="col-10 mx-auto">
-            <div class="card card-body mb-2"> <!-- Ã‰sta es la mesa de juego -->
+            <div class="card card-body mb-2"> <!-- Ésta es la mesa de juego -->
               <div class="container">
                 <div class="card-deck mb-3">
 
@@ -114,7 +119,7 @@
             <div class="card card-body mb-2 contexto">
               <p>Jugador 1 dijo envido.</p>
               <p>Jugador 3 dijo quiero.</p>
-              <p>Jugador 2 ganÃ³ el envido con 28 puntos.</p>
+              <p>Jugador 2 ganó el envido con 28 puntos.</p>
             </div>
           </div> 
           </div>
