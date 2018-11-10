@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/hibernate3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/javassist-3.4.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/jtds-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/slf4j-api-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/slf4j-simple-1.5.6.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/AD_TPO_Repositorio_v2"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
