@@ -15,6 +15,6 @@
 	<classpathentry kind="lib" path="lib/jtds-1.2.5.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.5.6.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-simple-1.5.6.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/AD_TPO_Repositorio_v2"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/AD_TPO_Repositorio"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

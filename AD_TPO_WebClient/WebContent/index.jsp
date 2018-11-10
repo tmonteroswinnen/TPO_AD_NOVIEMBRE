@@ -21,17 +21,14 @@
     <div class="row">
         <div class="col-6 mx-auto">
             <!-- <div class="card card-body mb-2"> -->
-            <form action="LoginServlet">
-              <div class="form-group">
-                <label for="apodo">Apodo:</label>
-                <input type="Apodo" class="form-control" id="apodo">
-              </div>
-              <div class="form-group">
-                <label for="contraseña">Contraseña:</label>
-                <input type="Contraseña" class="form-control" id="pwd">
-              </div>
-              <button type="submit" class="btn btn-default">Ingresar</button>
-            </form>
+            
+            <form name="loginForm" method="post" action="LoginServlet">
+		    Jugador: <input type="text" name="apodo"/> <br/>
+		    Contraseña: <input type="password" name="contrasena"/> <br/>
+		    <input type="submit" value="Login" />
+			</form>
+		
+		
             </div>
         </div>
     <hr>

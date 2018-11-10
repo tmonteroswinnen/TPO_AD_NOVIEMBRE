@@ -1,11 +1,9 @@
 package servlets;
 
 
+
 import java.io.IOException;
-import java.rmi.RemoteException;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.io.*;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import businessDelegate.BusinessDelegate;
-import dtos.JugadorDTO;
-
+import dtos.*;
+import enums.*;
 /**
  * Servlet implementation class LoginServlet
  */
@@ -47,6 +45,8 @@ public class LoginServlet extends HttpServlet {
 		String apodo = request.getParameter("apodo");
 		String contrasena = request.getParameter("contrasena");
 		
+		System.out.println("Apodo: " + apodo + " Contrasena: " +contrasena);
+
 		JugadorDTO jg = new JugadorDTO();
 		jg.setApodo(apodo);
 		jg.setPassword(contrasena);
