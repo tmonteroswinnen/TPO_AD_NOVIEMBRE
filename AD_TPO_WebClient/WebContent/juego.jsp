@@ -1,8 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="es">
-<%@page import = "dtos.JugadorDTO" %>
 <head>
   <title>Truco - Login</title>
   <meta charset="utf-8">
@@ -35,35 +32,89 @@
     </nav>
     <hr>
     <div class="mx-auto w-50 p-3 bg-dark text-white text-center">
-    <% 
-         JugadorDTO jg = (JugadorDTO) request.getAttribute("jugador");
-     %>
-      <span><%= jg.getApodo() %></span>
+      <h5>Jugador 1</h5>
     </div>
     <hr>
 
-    <div class="container bg-faded">
+    <div class="container">
         <div class="row">
           <div class="col-10 mx-auto">
             <div class="card card-body mb-2"> <!-- Ésta es la mesa de juego -->
               <div class="container">
                 <div class="card-deck mb-3">
 
-                    <button class="cartaEnMesa">
-                      <img src="./images/cartas/basto (4).jpg">
-                    </button>
+                    <div class="jugadorEnMesa">
+                      <h6>Jugador1</h6>
+                    </div>
 
-                    <button class="cartaEnMesa">
-                      <img src="./images/cartas/espada (10).jpg">
-                    </button>
+                    <div class="jugadorEnMesa">
+                      <h6>Jugador2</h6>
+                    </div>
 
-                    <button class="cartaEnMesa">
-                      <img src="./images/cartas/espada (11).jpg">
-                    </button>
+                    <div class="jugadorEnMesa">
+                      <h6>Jugador3</h6>
+                    </div>
 
-                    <button class="cartaEnMesa">
-                      <img src="./images/cartas/oro (7).jpg">
-                    </button>
+                    <div class="jugadorEnMesa">
+                      <h6>Jugador4</h6>
+                    </div>
+
+                </div>
+                <div class="card-deck mb-3">
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                </div>
+                <div class="card-deck mb-3">
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                </div>
+                <div class="card-deck mb-3">
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
+
+                    <div class="cartaEnMesa">
+                      <img src="">
+                    </div>
 
                 </div>
 
@@ -139,4 +190,4 @@
       doWork();
     </script>
 </body>
-</html>
+</html></html>
