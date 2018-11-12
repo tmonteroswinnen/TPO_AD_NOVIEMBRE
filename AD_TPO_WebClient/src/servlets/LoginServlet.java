@@ -77,7 +77,7 @@ public class LoginServlet extends HttpServlet {
 			rd.forward(request, response);
 		} catch (Exception e) {
 			RequestDispatcher rd = null;
-			rd = getServletContext().getRequestDispatcher("/index_error.html");
+			rd = getServletContext().getRequestDispatcher("/index_error.jsp");
 			rd.forward(request, response);
 			
 			session.setAttribute("resultadoLogin", false);
