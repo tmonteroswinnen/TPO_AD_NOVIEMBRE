@@ -31,6 +31,7 @@
                 <input type="password" class="form-control" id="contrasena" name="contrasena">
               </div>
               <button type="submit" class="btn btn-default">Ingresar</button>
+              <a href="registro.jsp"><h6>Registrarse</h6></a>
             </form>
             </div>
         </div>
@@ -39,5 +40,8 @@
    
     
 </div>
+
+
+
 </body>
 </html>

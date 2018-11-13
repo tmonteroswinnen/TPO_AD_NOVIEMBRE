@@ -79,12 +79,12 @@ public class RegistroServlet extends HttpServlet {
 
 //			response.sendRedirect("main.jsp");
 
-			RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 			rd.forward(request, response);
 		} catch (Exception e) {
 			session.setAttribute("resultadoRegistro", false);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/juego.jsp");
 			rd.forward(request, response);
 		}
 	}

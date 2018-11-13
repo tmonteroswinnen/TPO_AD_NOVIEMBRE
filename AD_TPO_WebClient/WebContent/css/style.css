@@ -16,17 +16,28 @@ p {
 }
 
 .cartaEnMesa {
-	height: 139px;
-	width: 100px;
+	border: 1px dashed black;
+	height: 103px;
+	width: 74px;
 	margin-right: 30px;
 }
 
 .carta {
-	height: 209px;
-	width: 150px;
+	height: 139px;
+	width: 100px;
 	margin-right: 40px;
 }
 
 .contexto {
 	line-height: 10px;
+}
+
+.jugadorEnMesa {
+	width: 74px;
+	margin-right: 30px;
+}
+
+a h6 {
+	margin-top: 20px;
+	color: white;
 }

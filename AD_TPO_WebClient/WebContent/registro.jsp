@@ -17,14 +17,18 @@
     <div class="row">
         <div class="col-6 mx-auto">
             <!-- <div class="card card-body mb-2"> -->
-            <form action="/action_page.php">
+            <form action="RegistroServlet">
               <div class="form-group">
                 <label for="apodo">Apodo:</label>
-                <input type="Apodo" class="form-control" id="apodo">
+                <input type="text" class="form-control" id="apodo" name="apodo">
               </div>
               <div class="form-group">
-                <label for="contraseña">Contraseña:</label>
-                <input type="Contraseña" class="form-control" id="pwd">
+                <label for="mail">e-mail:</label>
+                <input type="text" class="form-control" id="mail" name="mail">
+              </div>
+              <div class="form-group">
+                <label for="contrasena">Contrase�a:</label>
+                <input type="text" class="form-control" id="contrasena" name="contrasena">
               </div>
               <button type="submit" class="btn btn-default">Registrarse</button>
             </form>
@@ -34,6 +38,5 @@
     </div>
    
     
-</div>
 </body>
 </html>
