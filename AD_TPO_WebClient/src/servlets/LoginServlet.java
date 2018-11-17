@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
 
 
 			
-			rd = getServletContext().getRequestDispatcher("/juego.jsp");
+			rd = getServletContext().getRequestDispatcher("/opciones.jsp");
 			rd.forward(request, response);
 		} catch (Exception e) {
 			RequestDispatcher rd = null;

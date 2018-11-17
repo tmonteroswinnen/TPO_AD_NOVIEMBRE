@@ -1,5 +1,6 @@
-
-
+<%@page import="dtos.JugadorDTO"%>
+<%@page import="dtos.GrupoDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!DOCTYPE html>
@@ -7,8 +8,11 @@
 
 
 <head>
-  <title>Truco TPO 2018 - Login</title>
+  <title>Opciones de Juego</title>
   
+  	<%
+	JugadorDTO jugador = (JugadorDTO) request.getAttribute("jugador");
+	%>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -19,32 +23,31 @@
 </head>
 <body>
   <div class="container bg-faded">
-    <h1 class="text-center">Truco web - Login</h1>
+    <h1 class="text-center">Opciones de Juego</h1>
     <hr>
-    <div class="row">
+     <div class="row">
         <div class="col-6 mx-auto">
             <!-- <div class="card card-body mb-2"> -->
-            <form action="LoginServlet">
-              <div class="form-group">
-                <label for="apodo">Apodo:</label>
-                <input type="text" class="form-control" id="apodo" name="apodo">
+            
+              <div>
+				<input type="submit" class="btn btn-default" value="Buscar Partido" onclick="location.href='opcionesJuego.jsp?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
+				    <hr>
+				
+				</div>
+              <div>
+				<input type="submit" class="btn btn-default" value="Crear Grupo" onclick="location.href='juego.jsp?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
+             
+                 <hr>
               </div>
-              <div class="form-group">
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" class="form-control" id="contrasena" name="contrasena">
-              </div>
-              <button type="submit" class="btn btn-default">Ingresar</button>
-              <a href="registro.jsp"><h6>Registrarse</h6></a>
-            </form>
+              <div>
+				<input type="submit" class="btn btn-default" value="Ver Ranking" onclick="location.href='buscarpartido.jsp?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
+			  
+			      <hr>
+			  </div>
             </div>
         </div>
-    <hr>
-    </div>
-   
+        </div>
     
-</div>
-
-
-
+    
 </body>
 </html>
