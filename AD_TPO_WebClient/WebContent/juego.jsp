@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@page import="dtos.JugadorDTO" %>
+<%@page import="dtos.BazaDTO" %>
 <%@ page import="enums.EstadoPartido"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="enums.TipoEnvite"%>
@@ -12,7 +13,8 @@
 
 <head>
 
-  <title>Truco - Login</title>
+  <title>Partido: <%= ((PartidoDTO) request.getAttribute("miPartido")).getId() %></title>
+  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -20,18 +22,110 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
-  
-  <!-- CODIGO JAVA / Inicializo todo   -->
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+<%
+
+JugadorDTO yo = (JugadorDTO) request.getAttribute("jugador");
+EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartido");
+
+//if (!estadoPartido.equals(EstadoPartido.Terminado)) 
+
+
+	List<BazaDTO> bazas = (List<BazaDTO>) request.getAttribute("bazas");
+	JugadorDTO jugadorActual = (JugadorDTO) request.getAttribute("jugadorActual");
+	PartidoDTO miPartido = (PartidoDTO) request.getAttribute("miPartido");
+	List<ParejaDTO> parejas = (List<ParejaDTO>) request.getAttribute("parejas");
+	List<CartaJugadorDTO> misCartas = (List<CartaJugadorDTO>) request.getAttribute("misCartas");
+	List<PuntajeParejaDTO> puntajes = (List<PuntajeParejaDTO>) request.getAttribute("puntajes");
+	List<JugadorDTO> ganadoresBazas = (List<JugadorDTO>) request.getAttribute("ganadoresBazas");
+// 	List<MovimientoDTO> movimientosBazas = (List<MovimientoDTO>) request.getAttribute("movimientos");
+
+	List<TipoEnvite> envites = new ArrayList<TipoEnvite>();	
+	if(jugadorActual.getId()== yo.getId()) {
+		envites = (List<TipoEnvite>) request.getAttribute("envites");
+	}
+	
+
+	String j1c1,j1c2,j1c3;
+
+	// Cargamos nuestras cartas!
+	j1c1 = "./images/cartas/" + misCartas.get(0).getCarta().getNombreImagen();
+	j1c2 = "./images/cartas/" + misCartas.get(1).getCarta().getNombreImagen();
+	j1c3 = "./images/cartas/" + misCartas.get(2).getCarta().getNombreImagen();
+
+	// Declaro las variables Nombre de jugadores
+	String jugador1 = yo.getApodo();
+	String jugador2 = "N/A";
+	String jugador3 = "N/A";
+	String jugador4 = "N/A";
+
+	int puntosNuestros = 99;
+	int puntosEllos = 99;
+
+	// 'jugador1' es el que esta ubicado en la parte inferior de la ventana
+	if (jugador1.equals((parejas.get(0).getJugador1()))) {
+		// soy el jugador 1 de la pareja 1
+		// ordeno la mesa a como la veria sentado
+		// 'jugador2' es mi jugador a la derecha
+		jugador2 = parejas.get(1).getJugador1();
+		// 'jugador3' es mi compañero, sentado en frente mio
+		jugador3 = parejas.get(0).getJugador2();
+		// es mi jugador a la izquierda
+		jugador4 = parejas.get(1).getJugador2();
+		
+		// Pertenezco a la Pareja 1
+		puntosNuestros = puntajes.get(0).getPuntaje();
+		puntosEllos = puntajes.get(1).getPuntaje();
+	} else if (jugador1.equals((parejas.get(1).getJugador1()))) {
+		// soy el jugador 1 de la pareja 2
+		// 'jugador2' es mi jugador a la derecha
+		jugador2 = parejas.get(0).getJugador2();
+		// 'jugador3' es mi compañero, sentado en frente mio
+		jugador3 = parejas.get(1).getJugador2();
+		// es mi jugador a la izquierda
+		jugador4 = parejas.get(0).getJugador1();
+
+		// Pertenezco a la Pareja 2
+		puntosNuestros = puntajes.get(1).getPuntaje();
+		puntosEllos = puntajes.get(0).getPuntaje();
+	} else if (jugador1.equals((parejas.get(0).getJugador2()))) {
+		// soy el jugador 2 de la pareja 1
+		// 'jugador2' es mi jugador a la derecha
+		jugador2 = parejas.get(1).getJugador2();
+		// 'jugador3' es mi compañero, sentado en frente mio
+		jugador3 = parejas.get(0).getJugador1();
+		// es mi jugador a la izquierda
+		jugador4 = parejas.get(1).getJugador1();
+
+		// Pertenezco a la Pareja 1
+		puntosNuestros = puntajes.get(0).getPuntaje();
+		puntosEllos = puntajes.get(1).getPuntaje();
+	} else if (jugador1.equals((parejas.get(1).getJugador2()))) {
+		// soy el jugador 2 de la pareja 2
+		// 'jugador2' es mi jugador a la derecha
+		jugador2 = parejas.get(0).getJugador1();
+		// 'jugador3' es mi compañero, sentado en frente mio
+		jugador3 = parejas.get(1).getJugador1();
+		// es mi jugador a la izquierda
+		jugador4 = parejas.get(0).getJugador2();
+
+		// Pertenezco a la Pareja 2
+		puntosNuestros = puntajes.get(1).getPuntaje();
+		puntosEllos = puntajes.get(0).getPuntaje();
+	} else {
+		// ?????
+	}
+//}
+%>
+
+
+
+
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end">
       <a class="navbar-brand" href="#">TRUCO - WEB</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,10 +147,8 @@
     </nav>
 	    <hr>
 	    <div class="mx-auto w-50 p-3 bg-dark text-white text-center">
-	    <% 
-	         JugadorDTO jg = (JugadorDTO) request.getAttribute("jugador");
-	     %>
-	      <span><%= jg.getApodo() %></span>
+	    
+	      <span><%=yo.getApodo()%></span>
 	    </div>
 	    <hr>
     </div>
@@ -70,94 +162,102 @@
                 <div class="card-deck mb-3">
 
                     <div class="jugadorEnMesa">
-                      <h6><%= jg.getApodo() %></h6>
+                      <h6><%=yo.getApodo()%></h6>
                     </div>
 
                     <div class="jugadorEnMesa">
-                      <h6>Jugador2</h6>
+                      <h6><%=miPartido.getParejas().get(0).getJugador1() %></h6>
                     </div>
 
                     <div class="jugadorEnMesa">
-                      <h6>Jugador3</h6>
+                      <h6><%=miPartido.getParejas().get(0).getJugador2() %></h6>
                     </div>
 
                     <div class="jugadorEnMesa">
-                      <h6>Jugador4</h6>
+                      <h6><%=miPartido.getParejas().get(1).getJugador1() %></h6>
                     </div>
 
                 </div>
-                <div class="card-deck mb-3">
+                
+                
+                
+                
+                <!-- ACA EMPIEZA A RECORRERSE LAS BAZAS PARA PONER LAS CARTAS DONDE VAN DE CADA UNO -->
+                
+                
+                <%                
+                
+				byte cantidadCartasTiradasJugador2 = 0;
+				byte cantidadCartasTiradasJugador3 = 0;
+				byte cantidadCartasTiradasJugador4 = 0;
+				for (int i=0; i < bazas.size(); i++) {
+					for (MovimientoDTO movimiento: bazas.get(i).getTurnosBaza()) {
+						if (movimiento instanceof CartaTiradaDTO) {					
+							CartaTiradaDTO cartaTirada = (CartaTiradaDTO) movimiento;
+							CartaJugadorDTO cartaJugador = cartaTirada.getCartaJugador(); 
+							if (cartaJugador.getJugador().getApodo().equals(jugador1)) {
 
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
+								
+%>
 
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
 
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
+	                <div class="card-deck mb-3">
+	
+	                    <div class="cartaEnMesa">
+	                      <img id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador1"%> src=<%="images/cartas/" + cartaJugador.getCarta().getNombreImagen()%> alt=<%=cartaJugador.getCarta().getNombreImagen()%> draggable="false">
+	                    </div>
+	<%
+				} else if (cartaJugador.getJugador().getApodo().equals(jugador2)) {
+	%>
+	                    <div class="cartaEnMesa">
+	                      <img id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador2"%> src=<%="images/cartas/" + cartaJugador.getCarta().getNombreImagen()%> alt=<%=cartaJugador.getCarta().getNombreImagen()%> draggable="false">
+	                    </div>
+	<%
+					cantidadCartasTiradasJugador2++;
+	
+				} else if (cartaJugador.getJugador().getApodo().equals(jugador3)) {
+	%>
+	                    <div class="cartaEnMesa">
+						<img id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador3"%> src=<%="images/cartas/" + cartaJugador.getCarta().getNombreImagen()%> alt=<%=cartaJugador.getCarta().getNombreImagen()%> draggable="false">
+	                    </div>
+	<%
+					cantidadCartasTiradasJugador3++;
+	
+				} else if (cartaJugador.getJugador().getApodo().equals(jugador4)) {
+	%>
+	                    <div class="cartaEnMesa">
+	                      <img id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador4"%> src=<%="images/cartas/" + cartaJugador.getCarta().getNombreImagen()%> alt=<%=cartaJugador.getCarta().getNombreImagen()%> draggable="false">
+	                    </div>
+	
+	                </div>
+	<%
+					cantidadCartasTiradasJugador4++;
 
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
+			}
+		}
+	}
+}
 
-                </div>
-                <div class="card-deck mb-3">
+%>
 
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
 
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
 
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
-
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
-
-                </div>
-                <div class="card-deck mb-3">
-
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
-
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
-
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
-
-                    <div class="cartaEnMesa">
-                      <img src="">
-                    </div>
-
-                </div>
-
+			<!-- ACA TERMINA LA RECORRIDA DE BAZAS -->
                 <hr>
 
                 <div class="card-deck mb-3">
 
                     <button class="carta" onclick="this.style.visibility='hidden'">
-                      <img class="carta" src="./images/cartas/basto (1).jpg">
+                      <img class="carta" src="<%=j1c1 %>">
+                    </button>
+                    
+
+                    <button class="carta" onclick="this.style.visibility='hidden'">
+                      <img class="carta" src="<%=j1c2 %>">
                     </button>
 
                     <button class="carta" onclick="this.style.visibility='hidden'">
-                      <img class="carta" src="./images/cartas/espada (1).jpg">
-                    </button>
-
-                    <button class="carta" onclick="this.style.visibility='hidden'">
-                      <img class="carta" src="./images/cartas/espada (7).jpg">
+                      <img class="carta" src="<%=j1c3 %>">
                     </button>
 
                 </div>
@@ -182,9 +282,17 @@
                         Envites
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Envido</a>
-                        <a class="dropdown-item" href="#">Real Envido</a>
-                        <a class="dropdown-item" href="#">Falta envido</a>
+                      <%
+                      for(TipoEnvite envite : envites)
+                      {
+                      
+                      %>
+                        <a class="dropdown-item" href="#"><%=envite%></a>
+                        
+                        <%
+                      }
+                        %>
+                        
                       </div>
                   </div>
                 <hr>  

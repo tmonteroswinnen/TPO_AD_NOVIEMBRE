@@ -49,7 +49,7 @@ public class CartaDTO implements Serializable {
 	}
 
 	public String getNombreImagen() {
-		return palo.name().toUpperCase() + numero + ".PNG";
+		return palo.name().toLowerCase() + " (" + numero + ")"+ ".jpg";
 	}
 
 	@Override
