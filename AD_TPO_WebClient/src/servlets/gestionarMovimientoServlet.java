@@ -160,7 +160,7 @@ public class gestionarMovimientoServlet extends HttpServlet {
 				}
 			}
 			
-			rd = getServletContext().getRequestDispatcher("/ventanaJuego.jsp");
+			rd = getServletContext().getRequestDispatcher("/juego.jsp");
 			rd.forward(request, response);
 		} catch (RemoteException e) {
 			e.printStackTrace();

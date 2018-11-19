@@ -279,8 +279,9 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 					<%
 					if (!misCartas.get(0).isTirada()) {
 					%>
-	                    <button class="carta" onclick="this.style.visibility='hidden'">
-	                      <img class="carta" src="<%=j1c1 %>">
+	                    <button class="carta" onclick="location.href='gestionarMovimiento?idJugador=<%=yo.getId()%>&apodoJugador=<%=yo.getApodo()%>&movimiento=ct&idPartido=<%=miPartido.getId()%>&idCartaTirada=<%=misCartas.get(0).getCarta().getId()%>'">
+	                    
+	                      <img class="carta" src="<%=j1c1 %>"> 
 	                    </button>
 	                <%
 				    }
@@ -289,7 +290,7 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 					if (!misCartas.get(1).isTirada()) {
 					%>  
 	
-	                    <button class="carta" onclick="this.style.visibility='hidden'">
+	                    <button class="carta" onclick="location.href='gestionarMovimiento?idJugador=<%=yo.getId()%>&apodoJugador=<%=yo.getApodo()%>&movimiento=ct&idPartido=<%=miPartido.getId()%>&idCartaTirada=<%=misCartas.get(1).getCarta().getId()%>'">
 	                      <img class="carta" src="<%=j1c2 %>">
 	                    </button>
 	 <%
@@ -298,7 +299,7 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 	                  <%
 					if (!misCartas.get(2).isTirada()) {
 					%> 
-	                    <button class="carta" onclick="this.style.visibility='hidden'">
+	                    <button class="carta" onclick="location.href='gestionarMovimiento?idJugador=<%=yo.getId()%>&apodoJugador=<%=yo.getApodo()%>&movimiento=ct&idPartido=<%=miPartido.getId()%>&idCartaTirada=<%=misCartas.get(2).getCarta().getId()%>'">
 	                      <img class="carta" src="<%=j1c3 %>">
 	                    </button>
 	                    <%
@@ -333,7 +334,8 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
                       {
                       
                       %>
-                        <a class="dropdown-item" href="location.href='gestionarMovimiento?movimiento=env&nombreEnvite=<%=envite.name()%>&idJugador=<%=yo.getId()%>&apodoJugador=<%=yo.getApodo()%>&idPartido=<%=miPartido.getId()%>'"><%=envite%></a>
+                        <a class="dropdown-item" href="location.href='gestionarMovimiento?movimiento=env&nombreEnvite=<%=envite.name()%>&idJugador=<%=
+                        yo.getId()%>&apodoJugador=<%=yo.getApodo()%>&idPartido=<%=miPartido.getId()%>'"><%=envite%></a>
                         
                         <%
                       }
@@ -342,6 +344,7 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
                       </div>
                   </div>
                   
+							                 
                 <hr>
                 <% 
 				    	//Marco los Ganadores de las Bazas
@@ -365,7 +368,6 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
           </div>
           
           
-				
           <div class="col-12">
             <div class="card card-body mb-2 contexto">
 			              <% 
@@ -412,7 +414,6 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
       doWork();
     </script>
     
-   
     
 </body>
 </html></html>
