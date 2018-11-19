@@ -120,8 +120,41 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 //}
 %>
 
+<script type="text/javascript">
 
+	setInterval(function() { actualizar() }, 10000);
+// 	setInterval(blinker, 1000);
 
+	function actualizar() {
+		window.location.href='RefrescarPartido?idJugador=<%=yo.getId()%>&apodoJugador=<%=yo.getApodo()%>&idPartido=<%=miPartido.getId()%>'
+	}
+
+//     function blinker() {
+//     	$('.blinking').fadeOut(500);
+//     	$('.blinking').fadeIn(500);
+//     }
+
+	function allowDrop(ev) {
+		ev.preventDefault();
+	}
+
+	function drag(ev) {
+		ev.dataTransfer.setData("text", ev.target.id);
+	}
+
+	function drop(ev) {
+		ev.preventDefault();
+		var carta = ev.dataTransfer.getData("text");
+// 		ev.target.appendChild(document.getElementById(carta));
+
+// 		document.getElementById(carta).draggable = false;
+// 		document.getElementById("contenedorCarta1").ondrop = null;
+// 		document.getElementById("contenedorCarta2").style.visibility = 'visible';
+
+		window.location.href='gestionarMovimiento?idJugador=<%=yo.getId()%>&apodoJugador=<%=yo.getApodo()%>&movimiento=ct&idPartido=<%=miPartido.getId()%>&idCartaTirada=' + carta;
+	} 
+
+	</script>
 
 </head>
 <body>
@@ -162,19 +195,19 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
                 <div class="card-deck mb-3">
 
                     <div class="jugadorEnMesa">
-                      <h6><%=yo.getApodo()%></h6>
+                      <h6><%=jugador1%></h6>
                     </div>
 
                     <div class="jugadorEnMesa">
-                      <h6><%=miPartido.getParejas().get(0).getJugador1() %></h6>
+                      <h6><%=jugador2 %></h6>
                     </div>
 
                     <div class="jugadorEnMesa">
-                      <h6><%=miPartido.getParejas().get(0).getJugador2() %></h6>
+                      <h6><%=jugador3 %></h6>
                     </div>
 
                     <div class="jugadorEnMesa">
-                      <h6><%=miPartido.getParejas().get(1).getJugador1() %></h6>
+                      <h6><%=jugador4 %></h6>
                     </div>
 
                 </div>
@@ -239,26 +272,38 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 }
 
 %>
-
-
-
 			<!-- ACA TERMINA LA RECORRIDA DE BAZAS -->
                 <hr>
 
                 <div class="card-deck mb-3">
-
-                    <button class="carta" onclick="this.style.visibility='hidden'">
-                      <img class="carta" src="<%=j1c1 %>">
-                    </button>
-                    
-
-                    <button class="carta" onclick="this.style.visibility='hidden'">
-                      <img class="carta" src="<%=j1c2 %>">
-                    </button>
-
-                    <button class="carta" onclick="this.style.visibility='hidden'">
-                      <img class="carta" src="<%=j1c3 %>">
-                    </button>
+					<%
+					if (!misCartas.get(0).isTirada()) {
+					%>
+	                    <button class="carta" onclick="this.style.visibility='hidden'">
+	                      <img class="carta" src="<%=j1c1 %>">
+	                    </button>
+	                <%
+				    }
+				    %>
+	                  <%
+					if (!misCartas.get(1).isTirada()) {
+					%>  
+	
+	                    <button class="carta" onclick="this.style.visibility='hidden'">
+	                      <img class="carta" src="<%=j1c2 %>">
+	                    </button>
+	 <%
+				    }
+				    %>
+	                  <%
+					if (!misCartas.get(2).isTirada()) {
+					%> 
+	                    <button class="carta" onclick="this.style.visibility='hidden'">
+	                      <img class="carta" src="<%=j1c3 %>">
+	                    </button>
+	                    <%
+				    }
+				    %>
 
                 </div>
 
@@ -288,7 +333,7 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
                       {
                       
                       %>
-                        <a class="dropdown-item" href="#"><%=envite%></a>
+                        <a class="dropdown-item" href="location.href='gestionarMovimiento?movimiento=env&nombreEnvite=<%=envite.name()%>&idJugador=<%=yo.getId()%>&apodoJugador=<%=yo.getApodo()%>&idPartido=<%=miPartido.getId()%>'"><%=envite%></a>
                         
                         <%
                       }
@@ -296,16 +341,58 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
                         
                       </div>
                   </div>
-                <hr>  
+                  
+                <hr>
+                <% 
+				    	//Marco los Ganadores de las Bazas
+				    	JugadorDTO ganador;
+				    
+				    	for(int i=0; i<ganadoresBazas.size(); i++)
+				    	{
+				    		ganador= ganadoresBazas.get(i);
+				    		%>  <h6>Ganador Baza <%=i+1%>: <%=ganador.getApodo()%></h6><br />
+				    	
+				    	<% }
+				    	
+						if(ganadoresBazas.size()<3){
+							//Aun se esta jugando alguna mano
+							%>
+							<h6>Ganador Baza <%=ganadoresBazas.size()+1%>: En Juego</h6>
+						<% }
+				    %>  
                 </div>
             </div>
           </div>
-
+          
+          
+				
           <div class="col-12">
             <div class="card card-body mb-2 contexto">
-              <p>Jugador 1 dijo envido.</p>
-              <p>Jugador 3 dijo quiero.</p>
-              <p>Jugador 2 ganó el envido con 28 puntos.</p>
+			              <% 
+			  for(BazaDTO baza: bazas){
+			  	for(MovimientoDTO movimiento: baza.getTurnosBaza())
+			  	{
+				  %>
+				  <tr>
+				  	<%
+				  		if(movimiento instanceof EnviteDTO)
+				  		{
+							// es un Envite
+				  			%><td>Envite</td>
+				  			  <td>El Jugador <%=((EnviteDTO)movimiento).getJugador().getApodo()%> canto <%=((EnviteDTO)movimiento).getTipoEnvite()%></td>
+				  			  
+				  		<% } else {
+				  			// es una carta Tirada
+				  		%>
+				  			 <td>CartaTirada</td>
+					  		 <td>El Jugador <%=((CartaTiradaDTO) movimiento).getCartaJugador().getJugador().getApodo()%> tiro el 
+					  		 <%=((CartaTiradaDTO) movimiento).getCartaJugador().getCarta().toString()%></td> 
+					  	<%}%>
+			
+					  	<td><%=movimiento.getFechaHora()%></td>
+					  	</tr>  
+				<%}
+			  }%>
             </div>
           </div> 
           </div>
@@ -324,5 +411,8 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 
       doWork();
     </script>
+    
+   
+    
 </body>
 </html></html>
