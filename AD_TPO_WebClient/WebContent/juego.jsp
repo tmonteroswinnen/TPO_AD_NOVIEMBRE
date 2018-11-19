@@ -269,11 +269,12 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 
           <div class="col-2 mx-auto text-center">
               <div class="card card-body mb-2">
-                <h6>Pareja 1</h6>
-                <h2>26</h2>
-                <h6>Pareja 2</h6>
-                <h2>18</h2>
+                <h6>Pareja 1</h6> <h11>(<%=jugador1%> & <%=jugador3%>)</h11>
+                <h2><%=puntosNuestros%> </h2>
+                <h6>Pareja 2</h6> <h11> (<%=jugador2%> & <%=jugador4%>)</h11>
+                <h2><%=puntosEllos%></h2>
                 <hr>
+                <h6>Turno: <%=jugadorActual.getApodo()%></h6>
                 <button type="button" class="btn btn-danger" onclick="location.reload()">Actualizar</button>
                 <hr>
                 <div>
