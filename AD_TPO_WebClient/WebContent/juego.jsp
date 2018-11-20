@@ -182,7 +182,17 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 	    <hr>
 	    <div class="mx-auto w-50 p-3 bg-dark text-white text-center">
 	    
+	    
+	    
+	    <% if (jugadorActual.getApodo().equals(yo.getApodo())) {%>
+	      <span style="color:red"><%=yo.getApodo()%> - Tu turno!</span>
+	      <%}else{%>
 	      <span><%=yo.getApodo()%></span>
+	      <%}%>
+	      
+	      
+	      
+	      
 	    </div>
 	    <hr>
     </div>
