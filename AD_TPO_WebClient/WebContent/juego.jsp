@@ -185,7 +185,7 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 	    
 	    
 	    <% if (jugadorActual.getApodo().equals(yo.getApodo())) {%>
-	      <span style="color:red"><%=yo.getApodo()%> - Tu turno!</span>
+	      <span  class="parpadea text"><%=yo.getApodo()%> - Tu turno!</span>
 	      <%}else{%>
 	      <span><%=yo.getApodo()%></span>
 	      <%}%>
