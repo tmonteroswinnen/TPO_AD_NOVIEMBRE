@@ -190,14 +190,13 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 	      <span><%=yo.getApodo()%></span>
 	      <%}%>
 	      
-	      
+	     
 	      
 	      
 	    </div>
 	    <hr>
     </div>
     <hr>
-
     <div class="container">
         <div class="row">
           <div class="col-10 mx-auto">
@@ -206,7 +205,7 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
                 <div class="card-deck mb-3">
 
                     <div class="jugadorEnMesa">
-                      <h6><%=jugador1%></h6>
+                      <h6><b><%=jugador1%></b></h6>
                     </div>
 
                     <div class="jugadorEnMesa">
@@ -234,59 +233,91 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 				byte cantidadCartasTiradasJugador2 = 0;
 				byte cantidadCartasTiradasJugador3 = 0;
 				byte cantidadCartasTiradasJugador4 = 0;
+				boolean jugo1=false,jugo2=false,jugo3=false,jugo4=false;
+				String carta1="",carta2="",carta3="",carta4="";
+				
 				for (int i=0; i < bazas.size(); i++) {
 					%><div class="card-deck mb-3"><% 
 					
-					
-					for (MovimientoDTO movimiento: bazas.get(i).getTurnosBaza()) {
-						if (movimiento instanceof CartaTiradaDTO) {					
-							CartaTiradaDTO cartaTirada = (CartaTiradaDTO) movimiento;
-							CartaJugadorDTO cartaJugador = cartaTirada.getCartaJugador(); 
-							String carta_source = "./images/cartas/" + cartaJugador.getCarta().getNombreImagen();
-							if (cartaJugador.getJugador().getApodo().equals(jugador1)) {
-
-								
-			%>
-			                    <div class="cartaEnMesa">
-			                    
-			                      <img src="<%=carta_source%>" height="103" width="74" id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador1"%>  >
-			                    </div>
-			<%
-						} else if (cartaJugador.getJugador().getApodo().equals(jugador2)) {
-			%>
-			                    <div class="cartaEnMesa">
-			                      <img height="103" width="74" id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador2"%> src="<%=carta_source%>" >
-			                    </div>
-			<%
-							cantidadCartasTiradasJugador2++;
-			
-						} else if (cartaJugador.getJugador().getApodo().equals(jugador3)) {
-			%>
-			                    <div class="cartaEnMesa">
-			                      <img height="103" width="74" id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador3"%> src="<%=carta_source%>" >
-			                    </div>
-			<%
-							cantidadCartasTiradasJugador3++;
-			
-						} else if (cartaJugador.getJugador().getApodo().equals(jugador4)) {
-			%>
-			                    <div class="cartaEnMesa">
-			                      <img height="103" width="74" id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador4"%> src="<%=carta_source%>" >
-			                    </div>
-			
-			               
-			<%
-							cantidadCartasTiradasJugador4++;
-		
-					}
+							//ACA VEO QUIEN JUGO EN LA BAZA
+							jugo1=false;
+							jugo2=false;
+							jugo3=false;
+							jugo4=false;
 							
-				}
-			}
-					
-					
+							
+							for (MovimientoDTO movimiento: bazas.get(i).getTurnosBaza()) {
+								if (movimiento instanceof CartaTiradaDTO) {
+									CartaTiradaDTO cartaTirada_aux = (CartaTiradaDTO) movimiento;
+									CartaJugadorDTO cartaJugador_aux = cartaTirada_aux.getCartaJugador(); 
+									if (cartaJugador_aux.getJugador().getApodo().equals(jugador1)){
+										jugo1=true;
+										carta1= "./images/cartas/" + cartaJugador_aux.getCarta().getNombreImagen();
+									}
+									if (cartaJugador_aux.getJugador().getApodo().equals(jugador2)){
+										jugo2=true;
+										carta2= "./images/cartas/" + cartaJugador_aux.getCarta().getNombreImagen();
+									}
+									if (cartaJugador_aux.getJugador().getApodo().equals(jugador3)){
+										jugo3=true;
+										carta3= "./images/cartas/" + cartaJugador_aux.getCarta().getNombreImagen();
+									}
+									if (cartaJugador_aux.getJugador().getApodo().equals(jugador4)){
+										jugo4=true;
+										carta4= "./images/cartas/" + cartaJugador_aux.getCarta().getNombreImagen();
+									}
+								}
+							}
+							//ACA TERMINO DE VER QUIEN JUGO EN LA BAZA
+							
+							if (jugo1){
+								%>
+			                    <div class="cartaEnMesa">
+			                  	<img src="<%=carta1%>" height="103" width="74" id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador1"%>>
+			                    </div>
+								<% 
+							}else {
+								%><div class="cartaEnMesa">
+			                      <img src="">
+			                    </div><%
+							}
+							if (jugo2){
+								%>
+			                    <div class="cartaEnMesa">
+			                  	<img src="<%=carta2%>" height="103" width="74"  id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador2"%> >
+			                    </div>
+								<% 
+							}else {
+								%><div class="cartaEnMesa">
+			                      <img src="">
+			                    </div><%
+							}
+							if (jugo3){
+								%>
+			                    <div class="cartaEnMesa">
+			                  	<img src="<%=carta3%>" height="103" width="74" id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador3"%>  >
+			                    </div>
+								<% 
+							}else {
+								%><div class="cartaEnMesa">
+			                      <img src="">
+			                    </div><%
+							}
+							if (jugo4){
+								%>
+			                    <div class="cartaEnMesa">
+			                  	<img src="<%=carta4%>" height="103" width="74"  id=<%="cartaBaza" + bazas.get(i).getNumeroBaza() + "Jugador4"%>>
+			                    </div>
+								<% 
+							}else {
+								%><div class="cartaEnMesa">
+			                      <img src="">
+			                    </div><%
+							}
+							
 					%>	</div>	<%		
 					
-}
+	}
 
 %> 
 			<!-- ACA TERMINA LA RECORRIDA DE BAZAS -->

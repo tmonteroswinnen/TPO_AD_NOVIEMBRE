@@ -24,6 +24,49 @@ p {
 	margin-right: 30px;
 }
 
+.cartaJugador1_Baza1{
+	position: absolute;
+	width: 74px;
+	height: 103px;
+	left: 25px;
+	top: 80 px;
+}
+.cartaJugador2_Baza1{
+	position: absolute;
+	width: 74px;
+	height: 103px;
+	left: 400 px;
+	top: 40 px;
+}
+.cartaJugador3_Baza1{
+	position: absolute;	
+	width: 74px;
+	height: 103px;
+	position: fixed;
+	left: 800 px;
+	top: 100 px;
+	
+}
+.cartaJugador4_Baza1{
+	position: absolute;
+	width: 74px;
+	height: 103px;
+	position: fixed;
+	left: 1200 px;
+	top: 40 px;
+	
+	
+}
+
+
+.spotA1 { position: absolute; left: 0.60em; top: 0.5em; }
+.spotA2 { position: absolute; left: 0.60em; top: 1.5em; }
+.spotA3 { position: absolute; left: 0.60em; top: 2.0em; }
+.spotA4 { position: absolute; left: 0.60em; top: 2.5em; }
+.spotA5 { position: absolute; left: 0.60em; top: 3.5em; }
+ 
+
+
 .carta {
 	height: 139px;
 	width: 100px;
