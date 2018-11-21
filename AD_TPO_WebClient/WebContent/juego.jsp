@@ -204,21 +204,41 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
               <div class="container">
                 <div class="card-deck mb-3">
 
-                    <div class="jugadorEnMesa">
-                      <h6><b><%=jugador1%></b></h6>
-                    </div>
 
+					
                     <div class="jugadorEnMesa">
-                      <h6><%=jugador2 %></h6>
-                    </div>
+                      <h6 style="color:#28EA77;"><b><%=jugador1%></b></h6>
+                    </div>                    
+             
+					<% if(!jugadorActual.getApodo().equals(jugador2)){ %>
+	                    <div class="jugadorEnMesa">
+	                      <h6><%=jugador2 %></h6>
+	                    </div>
+                    <%}else{ %>
+	                    <div class="parpadeaJug text">
+	                      <h6><%=jugador2 %></h6>
+	                    </div>
+                    <%}%>
 
-                    <div class="jugadorEnMesa">
-                      <h6><%=jugador3 %></h6>
-                    </div>
+                    <% if(!jugadorActual.getApodo().equals(jugador3)){ %>
+	                    <div class="jugadorEnMesa">
+	                      <h6><%=jugador3 %></h6>
+	                    </div>
+                    <%}else{ %>
+	                    <div class="parpadeaJug text">
+	                      <h6><%=jugador3 %></h6>
+	                    </div>
+                    <%}%>
 
-                    <div class="jugadorEnMesa">
-                      <h6><%=jugador4 %></h6>
-                    </div>
+                   <% if(!jugadorActual.getApodo().equals(jugador4)){ %>
+	                    <div class="jugadorEnMesa">
+	                      <h6><%=jugador4 %></h6>
+	                    </div>
+                    <%}else{ %>
+	                    <div class="parpadeaJug text">
+	                      <h6><%=jugador4 %></h6>
+	                    </div>
+                    <%}%>
 
                 </div>
                 
