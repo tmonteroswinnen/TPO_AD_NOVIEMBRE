@@ -11,9 +11,10 @@
 <%@ page import="dtos.*"%>
 <html lang="es">
 
-<head>
+<head><%
+JugadorDTO jug = (JugadorDTO) request.getAttribute("jugador");%>
 
-  <title>Partido: <%= ((PartidoDTO) request.getAttribute("miPartido")).getId()  %></title>
+  <title>TRUCO - <%=jug.getApodo()  %></title>
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
