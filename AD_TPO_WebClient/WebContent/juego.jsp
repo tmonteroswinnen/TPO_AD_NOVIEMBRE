@@ -223,11 +223,11 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 
                     <% if(!jugadorActual.getApodo().equals(jugador3)){ %>
 	                    <div class="jugadorEnMesa">
-	                      <h6><%=jugador3 %></h6>
+	                      <h6 style="color:#28EA77;"><%=jugador3 %></h6>
 	                    </div>
                     <%}else{ %>
 	                    <div class="parpadeaJug text">
-	                      <h6><%=jugador3 %></h6>
+	                      <h6 style="color:#28EA77;"><%=jugador3 %></h6>
 	                    </div>
                     <%}%>
 
