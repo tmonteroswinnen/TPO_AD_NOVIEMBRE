@@ -49,5 +49,8 @@
   <label></label>
 </p>
 <p>&nbsp;</p>
+<div>
+<input class="btn btn-default" type="submit" value="Volver al Menu" onclick="location.href='VolverAlMenu?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>
+    </div>
 </body>
 </html>

@@ -23,9 +23,9 @@
 </head>
 <body>
   <div class="container bg-faded">
-    <h1 class="text-center">Opciones de Juego</h1>
+    <h1 class="text-center">Menu Principal</h1>
     <hr>
-     <div class="row">
+     <div class="row" align="center">
         <div class="col-6 mx-auto">
             <!-- <div class="card card-body mb-2"> -->
             
@@ -49,13 +49,13 @@
 			  </div>
 			  <div>
 				<input type="submit" class="btn btn-default" value="Ver Ranking" 
-				onclick="location.href='seleccionarGrupo?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
+				onclick="location.href='VisualizarRanking?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
              
                  <hr>
-			  </div>
+			
 			  <div>
 				<input type="submit" class="btn btn-default" value="Cerrar Sesión" 
-				onclick="location.href='seleccionarGrupo.jsp?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
+				onclick="location.href='LogoutServlet?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
              
                  <hr>
 			  </div>
