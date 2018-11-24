@@ -124,7 +124,7 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 
 <script type="text/javascript">
 
-	setInterval(function() { actualizar() }, 10000);
+	setInterval(function() { actualizar() }, 5000);
 // 	setInterval(blinker, 1000);
 
 	function actualizar() {

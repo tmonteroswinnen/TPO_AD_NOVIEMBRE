@@ -42,7 +42,8 @@
             <!-- <div class="card card-body mb-2"> -->
             
               <div>
-			<input type="image" src="images/individual.png"  height="42" width="42" onclick="location.href='CrearPartidaIndividualServlet?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>    
+			<input type="image" src="images/individual.png"  height="42" width="42"
+			onclick="location.href='CrearPartidaIndividualServlet?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>    
 			<p class="btn btn-default">Libre Individual</p>
 			<hr>
 				

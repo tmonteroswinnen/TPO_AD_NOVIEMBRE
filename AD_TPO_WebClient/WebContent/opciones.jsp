@@ -30,19 +30,34 @@
             <!-- <div class="card card-body mb-2"> -->
             
               <div>
-				<input type="submit" class="btn btn-default" value="Buscar Partido" onclick="location.href='opcionesJuego.jsp?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
+				<input type="submit" class="btn btn-default" value="Buscar Partido" 
+				onclick="location.href='opcionesJuego.jsp?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
 				    <hr>
 				
 				</div>
               <div>
-				<input type="submit" class="btn btn-default" value="Crear Grupo" onclick="location.href='juego.jsp?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
+				<input type="submit" class="btn btn-default" value="Crear Grupo" 
+				onclick="location.href='crearGrupo.jsp?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
              
                  <hr>
               </div>
               <div>
-				<input type="submit" class="btn btn-default" value="Ver Ranking" onclick="location.href='buscarpartido.jsp?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
-			  
-			      <hr>
+				<input type="submit" class="btn btn-default" value="Seleccionar Grupo" 
+				onclick="location.href='SeleccionarGrupo?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>
+				 
+                 <hr>
+			  </div>
+			  <div>
+				<input type="submit" class="btn btn-default" value="Ver Ranking" 
+				onclick="location.href='seleccionarGrupo?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
+             
+                 <hr>
+			  </div>
+			  <div>
+				<input type="submit" class="btn btn-default" value="Cerrar Sesión" 
+				onclick="location.href='seleccionarGrupo.jsp?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
+             
+                 <hr>
 			  </div>
             </div>
         </div>
