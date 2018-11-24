@@ -80,6 +80,9 @@ public class SeleccionarGrupoServlet extends HttpServlet {
 			jugador.setGrupos(grupos);
 			
 			request.setAttribute("jugador", jugador);
+
+
+
 			
 			rd = getServletContext().getRequestDispatcher("/seleccionarGrupo.jsp");
 			rd.forward(request, response);
