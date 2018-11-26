@@ -78,6 +78,7 @@ public class RefrescarPartidoServlet extends HttpServlet {
 			RequestDispatcher rd = null;
 			
 			if (bd.partidoEstaTerminado(partido, jugador)) {
+				
 					//Se termino el partido, True es 1
 					request.setAttribute("estadoPartido", EstadoPartido.Terminado);
 					request.setAttribute("parejas", bd.obtenerParejasPartido(partido));
@@ -85,6 +86,9 @@ public class RefrescarPartidoServlet extends HttpServlet {
 					request.setAttribute("miPartido", partido);
 					request.setAttribute("parejaGanadora", bd.obtenerParejaGanadoraPartido(jugador, partido));
 					request.setAttribute("puntajes", bd.obtenerResultadoFinalPartido(jugador, partido));
+					rd = getServletContext().getRequestDispatcher("/juego.jsp");
+					rd.forward(request, response);
+					
 					
 			}
 			else

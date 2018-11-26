@@ -55,7 +55,7 @@
 			
 			  <div>
 				<input type="submit" class="btn btn-default" value="Cerrar Sesión" 
-				onclick="location.href='LogoutServlet?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
+				onclick="location.href='LogOutServlet?idJugador=<%=jugador.getId()%>&apodoJugador=<%=jugador.getApodo()%>'"/>              
              
                  <hr>
 			  </div>

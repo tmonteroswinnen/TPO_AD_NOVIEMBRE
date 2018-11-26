@@ -31,7 +31,7 @@ JugadorDTO jug = (JugadorDTO) request.getAttribute("jugador");%>
 JugadorDTO yo = (JugadorDTO) request.getAttribute("jugador");
 EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartido");
 
-//if (!estadoPartido.equals(EstadoPartido.Terminado)) 
+if (!estadoPartido.equals(EstadoPartido.Terminado)) {
 
 
 	List<BazaDTO> bazas = (List<BazaDTO>) request.getAttribute("bazas");
@@ -119,7 +119,7 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 	} else {
 		// ?????
 	}
-//}
+
 %>
 
 <script type="text/javascript">
@@ -485,6 +485,56 @@ EstadoPartido estadoPartido = (EstadoPartido) request.getAttribute("estadoPartid
 
       doWork();
     </script>
+    
+    <% }
+
+else
+{
+	List<ChicoDTO> puntajes = (List<ChicoDTO>)request.getAttribute("puntajes");
+	ParejaDTO ganadora = (ParejaDTO) request.getAttribute("parejaGanadora");
+	List<ParejaDTO> parejas = (List<ParejaDTO>) request.getAttribute("parejas");
+	
+	
+	%>
+	
+	<h2>El Partido ha finalizado</h1>
+	<h2 >La Pareja Ganadora es la de <%=ganadora.getJugador1() +" y " + ganadora.getJugador2()%></h2>
+	
+	<h1>Los Resultados Fueron: </h3>
+
+		<table class="table table-bordered table-dark" >
+		<tr>
+	    <th scope="col">N° Chico</th>
+	    <th scope="col"><%=parejas.get(0).getJugador1()+"/"+ parejas.get(0).getJugador2()%></th>
+	    <th scope="col"><%=parejas.get(1).getJugador1()+"/"+ parejas.get(1).getJugador2()%></th>
+	    <th scope="col">Ganador</th>
+	</tr>
+		
+		<% 
+			
+		for(ChicoDTO chico: puntajes){
+			%>
+			<tr>
+			<th scope="col"><%=chico.getNumeroChico()%></th>
+			<th scope="col"><%=chico.getPuntajes().get(0).getPuntaje()%></th>
+			<th scope="col"><%=chico.getPuntajes().get(1).getPuntaje()%></th>
+			<th scope="col"><%
+			
+			if(chico.getPuntajes().get(0).getPuntaje()>chico.getPuntajes().get(1).getPuntaje())
+			{
+				%><%=parejas.get(0).getJugador1()+"/"+ parejas.get(0).getJugador2()%><%
+			}
+			else
+			{
+				%><%=parejas.get(1).getJugador1()+"/"+ parejas.get(1).getJugador2()%><%
+			}%></th> </tr><%
+		}
+
+	%>	
+	<div align="center">
+	<input class="btn btn-default" type="submit" value="Volver al Menu" onclick="location.href='VolverAlMenu?idJugador=<%=yo.getId()%>&apodoJugador=<%=yo.getApodo()%>'"/>  
+		</div>
+<%}%>
     
     
 </body>
